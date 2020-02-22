@@ -39,7 +39,7 @@ const Provider = props => {
 
     return (
         <>
-            <Context.Provider value={'Hii'}>
+            <Context.Provider value={{state, dispatch}}>
                 {props.children}
             </Context.Provider>
         </>

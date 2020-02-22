@@ -12,6 +12,8 @@ const reducer = (state, action) => {
                 ...state,
                 stories: action.payload
             }
+        default:
+            return state;
     }
 }
 
