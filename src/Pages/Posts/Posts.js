@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Context } from './../Context/Context';
-import StoryDetails from './StoryDetails';
+import { Context } from '../../Context/Context';
+import StoryDetails from '../StoryDetails/StoryDetails';
 import * as styles from './Posts.module.scss';
 
 const Posts = () => {

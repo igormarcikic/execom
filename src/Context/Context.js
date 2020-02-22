@@ -6,7 +6,8 @@ import { setIDs, setStories } from './actions';
 export const Context = createContext();
 const initialState = {
     IDs: [],
-    stories: []
+    stories: [],
+    comments: []
 }
 
 const Provider = props => {

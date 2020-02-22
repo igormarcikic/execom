@@ -12,6 +12,11 @@ const reducer = (state, action) => {
                 ...state,
                 stories: action.payload
             }
+        case actionType.GET_COMMENTS:
+            return {
+                ...state,
+                comments: action.payload
+            }
         default:
             return state;
     }

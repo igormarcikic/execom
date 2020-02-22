@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './components/Nav';
-import Posts from './Pages/Posts';
-import About from './Pages/About';
+import Posts from './Pages/Posts/Posts';
+import About from './Pages/About/About';
 import Provider from './Context/Context';
 import * as styles from './App.module.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
