@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from './../Context/Context';
 import StoryDetails from './StoryDetails';
+import * as styles from './Posts.module.scss';
 
 const Posts = () => {
     const {state, dispatch} = useContext(Context);
@@ -14,9 +15,9 @@ const Posts = () => {
     }
 
     return (
-        <>
+        <div className={styles.Posts}>
             {isLoading}
-        </>
+        </div>
     )
 }
 
