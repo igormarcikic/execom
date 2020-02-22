@@ -1,10 +1,14 @@
 import React from 'react';
-import './App.css';
+import Posts from './Pages/Posts';
+import Provider from './Context/Context';
 
 function App() {
   return (
     <div className="App">
-      <h2>React App</h2>
+      <h2>Hacker News</h2>
+      <Provider>
+        <Posts />
+      </Provider>
     </div>
   );
 }
