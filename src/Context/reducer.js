@@ -7,6 +7,11 @@ const reducer = (state, action) => {
                 ...state,
                 IDs: action.payload
             }
+        case actionType.GET_STORIES:
+            return {
+                ...state,
+                stories: action.payload
+            }
     }
 }
 
