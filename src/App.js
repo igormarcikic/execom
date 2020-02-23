@@ -5,6 +5,7 @@ import About from './Pages/About/About';
 import Provider from './Context/Context';
 import * as styles from './App.module.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SingleStory from './Pages/SingleStory/SingleStory';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             </Provider>
           </Route>
           <Route exact path="/about" component={About}/>
+          <Route path='/posts/:id' component={SingleStory} />
         </Switch>
       </Router>
     </div>

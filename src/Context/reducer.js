@@ -17,6 +17,11 @@ const reducer = (state, action) => {
                 ...state,
                 comments: action.payload
             }
+        case actionType.RESET_COMMENTS:
+            return {
+                ...state,
+                comments: []
+            }
         default:
             return state;
     }
