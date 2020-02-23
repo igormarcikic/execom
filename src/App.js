@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav';
-import Posts from './Pages/Posts/Posts';
+import Posts from './Pages/Posts/Stories';
 import About from './Pages/About/About';
 import Provider from './Context/Context';
 import * as styles from './App.module.scss';

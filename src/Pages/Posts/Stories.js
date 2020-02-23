@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Context } from '../../Context/Context';
 import StoryDetails from '../StoryDetails/StoryDetails';
-import * as styles from './Posts.module.scss';
+import * as styles from './Stories.module.scss';
 
 const Posts = () => {
-    const {state, dispatch} = useContext(Context);
+    const {state} = useContext(Context);
 
     let isLoading = 'Stories are loading...';
 
@@ -12,6 +12,7 @@ const Posts = () => {
         isLoading = state.stories.map(story => (
             <StoryDetails story={story} key={story.id}/>
         ))
+        localStorage.setItem('stories', JSON.stringify(state.stories));
     }
 
     return (

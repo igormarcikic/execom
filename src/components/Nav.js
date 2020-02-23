@@ -7,7 +7,7 @@ const Nav = () => {
         <>
             <nav>
                 <div className={styles.Logo}><Link to="/">Hacker News</Link></div>
-                <div className={styles.item}><Link to="/">Posts</Link></div>
+                <div className={styles.item}><Link to="/">Stories</Link></div>
                 <div className={styles.item}><Link to="/about">About</Link></div>
             </nav>
         </>
