@@ -12,16 +12,19 @@ const Comments = ({comments}) => {
     // Pull comments based on the id passed from the props
     const fetchComments = async () => {
         setShowState(showState = !showState);
-        // Dispatch to reset the comments state
-        dispatch(resetComments())
+        if(showState) {
+            // Dispatch to reset the comments state
+            dispatch(resetComments())
 
-        const allComments = [];
-        for(const ID of comments) {
-            const res = await fetch(`${API.singleComment+ID}.json`);
-            const data = await res.json();
-            allComments.push(data)
+            const allComments = [];
+            for(const ID of comments) {
+                const res = await fetch(`${API.singleComment+ID}.json`);
+                const data = await res.json();
+                allComments.push(data)
+            }
+            dispatch(setComments(allComments))
         }
-        dispatch(setComments(allComments))
+        
     }
 
     // Variable which is showing loading/data 

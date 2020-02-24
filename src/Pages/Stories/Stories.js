@@ -6,7 +6,8 @@ import * as styles from './Stories.module.scss';
 const Posts = () => {
     const {state} = useContext(Context);
 
-    let isLoading = 'Stories are loading...';
+    // Variable which is showing loading/data
+    let isLoading = `Stories are loading...`;
 
     if(state.stories.length > 0) {
         isLoading = state.stories.map(story => (
