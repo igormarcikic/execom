@@ -9,11 +9,9 @@ import * as styles from './Stories.module.scss';
 const Posts = () => {
     const {state, dispatch} = useContext(Context);
     let [scrollStart, setScrollStart] = useState(0);
-    let [scrollEnd, setScrollEnd] = useState(10);
-    console.log(state)
+    let [scrollEnd, setScrollEnd] = useState(5);
 
     const fetchStories = async (IDs) => {
-        console.log('fetcStories fired')
         const allStories = [];
         for(const ID of IDs) {
             const res = await fetch(`${API.singleStory+ID}.json`);
@@ -42,12 +40,12 @@ const Posts = () => {
         if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
             if(state.stories.length < state.IDs.length) {
                 dispatch(loading())
-                setScrollStart(scrollStart+10);
-                setScrollEnd(scrollEnd+10);
+                setScrollStart(scrollStart+5);
+                setScrollEnd(scrollEnd+5);
                 fetchStories(state.IDs.splice(scrollStart, scrollEnd))
             }
         }
-    }, 500);
+    }, 100);
 
     return (
         <div className={styles.Posts}>
