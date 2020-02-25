@@ -33,7 +33,7 @@ export const resetComments = () => {
 
 export const loading = () => {
     return {
-        type: LOADING,
+        type: LOADING
     }
 }
 
