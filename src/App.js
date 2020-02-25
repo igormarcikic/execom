@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav';
-import Posts from './Pages/Stories/Stories';
+import Stories from './Pages/Stories/Stories';
 import About from './Pages/About/About';
 import Provider from './Context/Context';
 import * as styles from './App.module.scss';
@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Provider>
-              <Posts />
+              <Stories />
             </Provider>
           </Route>
           <Route exact path="/about" component={About}/>

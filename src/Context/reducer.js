@@ -22,6 +22,11 @@ const reducer = (state, action) => {
                 ...state,
                 comments: []
             }
+        case actionType.LOADING:
+            return {
+                ...state,
+                loading: true
+            }
         default:
             return state;
     }
