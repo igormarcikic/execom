@@ -35,7 +35,7 @@ const Provider = props => {
             }
             dispatch(setStories(allStories))
         }
-        fetchStories([...state.IDs].splice(0, 6))
+        fetchStories([...state.IDs].splice(0, 10))
     }, [state.IDs])
 
     

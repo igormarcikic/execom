@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../Context/Context';
 import StoryDetails from '../StoryDetails/StoryDetails';
 import { setStories, loading } from './../../Context/actions';
-import debounce from 'lodash.debounce';
 import * as API from './../../API';
 import * as styles from './Stories.module.scss';
 
 const Posts = () => {
     const {state, dispatch} = useContext(Context);
-    let [scrollStart, setScrollStart] = useState(6);
+    let [scrollStart, setScrollStart] = useState(10);
     console.log(state)
 
     // Function to fetch the next 6 stories
@@ -33,15 +32,15 @@ const Posts = () => {
     }
 
     // Infinite scroll function
-    window.onscroll = debounce(() => {
-        if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+    window.onscroll = () => {
+        if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && !state.loading) {
             if(state.stories.length < state.IDs.length) {
                 dispatch(loading())
-                setScrollStart(scrollStart+6);
-                fetchStories([...state.IDs].splice(scrollStart, 6))
+                setScrollStart(scrollStart+10);
+                fetchStories([...state.IDs].splice(scrollStart, 10))
             }
         }
-    }, 100)
+    }
 
     return (
         <div className={styles.Posts}>
