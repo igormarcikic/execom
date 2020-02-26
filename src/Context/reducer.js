@@ -10,7 +10,7 @@ const reducer = (state, action) => {
         case actionType.GET_STORIES:
             return {
                 ...state,
-                stories: [...state.stories, ...action.payload],
+                stories: [...state.stories,...action.payload],
                 loading: false
             }
         case actionType.GET_COMMENTS:

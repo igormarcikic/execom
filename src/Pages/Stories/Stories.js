@@ -2,15 +2,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../Context/Context';
 import StoryDetails from '../StoryDetails/StoryDetails';
 import { setStories, loading } from './../../Context/actions';
-import debounce from "lodash.debounce";
+import debounce from 'lodash.debounce';
 import * as API from './../../API';
 import * as styles from './Stories.module.scss';
 
 const Posts = () => {
     const {state, dispatch} = useContext(Context);
-    let [scrollStart, setScrollStart] = useState(0);
-    let [scrollEnd, setScrollEnd] = useState(5);
+    let [scrollStart, setScrollStart] = useState(6);
+    console.log(state)
 
+    // Function to fetch the next 6 stories
     const fetchStories = async (IDs) => {
         const allStories = [];
         for(const ID of IDs) {
@@ -20,11 +21,6 @@ const Posts = () => {
         }
         dispatch(setStories(allStories))
     }
-
-    // Pull stories data using the IDs
-    useEffect(()=> {
-        fetchStories(state.IDs.splice(scrollStart, scrollEnd))
-    }, [state.IDs])
 
     // Variable which is showing loading/data
     let isLoading = `Stories are loading...`;
@@ -36,16 +32,16 @@ const Posts = () => {
         localStorage.setItem('stories', JSON.stringify(state.stories));
     }
 
+    // Infinite scroll function
     window.onscroll = debounce(() => {
         if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
             if(state.stories.length < state.IDs.length) {
                 dispatch(loading())
-                setScrollStart(scrollStart+5);
-                setScrollEnd(scrollEnd+5);
-                fetchStories(state.IDs.splice(scrollStart, scrollEnd))
+                setScrollStart(scrollStart+6);
+                fetchStories([...state.IDs].splice(scrollStart, 6))
             }
         }
-    }, 100);
+    }, 100)
 
     return (
         <div className={styles.Posts}>
