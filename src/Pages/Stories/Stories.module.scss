@@ -1,0 +1,11 @@
+.Posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    h3 {
+        width: 100%;
+        text-align: center;
+        text-decoration: underline;
+    }
+}
