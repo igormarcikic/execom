@@ -2,6 +2,7 @@ export const GET_IDS = 'GET_IDS';
 export const GET_STORIES = 'GET_STORIES';
 export const GET_COMMENTS = 'GET_COMMENTS'; 
 export const RESET_COMMENTS = 'RESET_COMMENTS';
+export const LOADING = 'LOADING';
 
 export const setIDs = data => {
     return {
@@ -29,3 +30,10 @@ export const resetComments = () => {
         type: RESET_COMMENTS
     }
 }
+
+export const loading = () => {
+    return {
+        type: LOADING
+    }
+}
+

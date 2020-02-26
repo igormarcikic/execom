@@ -10,7 +10,8 @@ const reducer = (state, action) => {
         case actionType.GET_STORIES:
             return {
                 ...state,
-                stories: action.payload
+                stories: [...state.stories,...action.payload],
+                loading: false
             }
         case actionType.GET_COMMENTS:
             return {
@@ -21,6 +22,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 comments: []
+            }
+        case actionType.LOADING:
+            return {
+                ...state,
+                loading: true
             }
         default:
             return state;
