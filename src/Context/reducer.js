@@ -5,7 +5,8 @@ const reducer = (state, action) => {
         case actionType.GET_IDS:
             return {
                 ...state,
-                IDs: action.payload
+                IDs: action.payload,
+                loading: false
             }
         case actionType.GET_STORIES:
             return {
@@ -16,7 +17,8 @@ const reducer = (state, action) => {
         case actionType.GET_COMMENTS:
             return {
                 ...state,
-                comments: action.payload
+                comments: action.payload,
+                loading: false
             }
         case actionType.RESET_COMMENTS:
             return {

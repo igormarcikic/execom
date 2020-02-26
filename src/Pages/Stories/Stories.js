@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from '../../Context/Context';
 import StoryDetails from '../StoryDetails/StoryDetails';
 import { setStories, loading } from './../../Context/actions';
@@ -21,11 +21,9 @@ const Posts = () => {
         dispatch(setStories(allStories))
     }
 
-    // Variable which is showing loading/data
-    let isLoading = `Stories are loading...`;
-
+    let mapStories;
     if(state.stories.length > 0) {
-        isLoading = state.stories.map(story => (
+        mapStories = state.stories.map(story => (
             <StoryDetails story={story} key={story.id}/>
         ))
         localStorage.setItem('stories', JSON.stringify(state.stories));
@@ -44,8 +42,8 @@ const Posts = () => {
 
     return (
         <div className={styles.Posts}>
-            {isLoading}
-            {state.loading ? <h2>More stories loading...</h2> : null}
+            {mapStories}
+            {state.loading ? <h3>Stories loading...</h3> : null}
         </div>
     )
 }

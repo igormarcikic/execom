@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import reducer from './reducer';
 import * as API from './../API';
-import { setIDs, setStories } from './actions';
+import { setIDs, setStories, loading } from './actions';
 
 export const Context = createContext();
 const initialState = {
@@ -26,6 +26,7 @@ const Provider = props => {
 
      // Pull stories data using the IDs
      useEffect(()=> {
+        dispatch(loading())
         const fetchStories = async (IDs) => {
             const allStories = [];
             for(const ID of IDs) {
